@@ -11,6 +11,9 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://www.viaarena.com/Driver/%{sname}.zip
+Patch0: VT6656_Linux_src_v1.19_12_x86-netdev_priv.patch
+Patch1: VT6656_linux_src_v1.19.16_x86-fsugid.patch
+Patch2: VT6656_linux_src_v1.19.16_x86-noinfo.patch
 License: GPL
 Group: System/Kernel and hardware
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -24,6 +27,9 @@ This is a driver for the VIA VT6656 wireless USB chipset
 
 %prep
 %setup -q -n %{sname}
+%patch0 -p1 -b .netdev_priv
+%patch1 -p1 -b .fsugid
+%patch2 -p1 -b .noinfo
 
 cat > dkms.conf <<EOF
 PACKAGE_NAME=%{module}
