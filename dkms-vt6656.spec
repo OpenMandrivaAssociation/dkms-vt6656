@@ -2,7 +2,7 @@
 %define name dkms-%{module}
 %define uversion 1.19_12
 %define version %(echo %{uversion} | sed "s,_,.,")
-%define release %mkrel 1
+%define release %mkrel 2
 %define dkms_ver %{version}-%{release}
 %define sname VT6656_Linux_src_v%{uversion}_x86
 
@@ -48,6 +48,7 @@ mkdir -p %{buildroot}/usr/src/%{module}-%{dkms_ver}/
 pushd driver
 tar c . | tar x -C %{buildroot}/usr/src/%{module}-%{dkms_ver}/
 popd
+tar c include dkms.conf | tar x -C %{buildroot}/usr/src/%{module}-%{dkms_ver}/
 
 %clean
 rm -rf %{buildroot}
