@@ -2,7 +2,7 @@
 %define name dkms-%{module}
 %define uversion 1.19_12
 %define version %(echo %{uversion} | sed "s,_,.,")
-%define release %mkrel 2
+%define release %mkrel 3
 %define dkms_ver %{version}-%{release}
 %define sname VT6656_Linux_src_v%{uversion}_x86
 
