@@ -1,0 +1,28 @@
+diff -p -up VT6656_linux_src_v1.19.16_x86/driver/main_usb.c.fsugid VT6656_linux_src_v1.19.16_x86/driver/main_usb.c
+--- VT6656_linux_src_v1.19.16_x86/driver/main_usb.c.fsugid	2002-01-01 10:39:59.000000000 -0500
++++ VT6656_linux_src_v1.19.16_x86/driver/main_usb.c	2002-01-01 10:50:17.000000000 -0500
+@@ -1788,15 +1788,10 @@ static UCHAR *Config_FileOperation(PSDev
+     UCHAR    *buffer=NULL;
+     struct file   *filp=NULL;
+     mm_segment_t old_fs = get_fs();
+-    int oldfsuid=0,oldfsgid=0;
+     int result=0;
+ 
+     set_fs (KERNEL_DS);
+ //Make sure a caller can read or write power as root
+-   oldfsuid=current->fsuid;
+-   oldfsgid=current->fsgid;
+-    current->fsuid = 0;
+-    current->fsgid = 0;
+ 	
+     //open file 
+       filp = filp_open(config_path, O_RDWR, 0);
+@@ -1830,8 +1825,6 @@ error1:
+ 
+ error2:
+   set_fs (old_fs);
+-  current->fsuid=oldfsuid;
+-  current->fsgid=oldfsgid;
+ 
+ if(result!=0) {
+     if(buffer)

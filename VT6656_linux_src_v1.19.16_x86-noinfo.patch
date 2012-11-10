@@ -1,0 +1,12 @@
+diff -p -up VT6656_linux_src_v1.19.16_x86/driver/main_usb.c.noinfo VT6656_linux_src_v1.19.16_x86/driver/main_usb.c
+--- VT6656_linux_src_v1.19.16_x86/driver/main_usb.c.noinfo	2002-01-01 10:51:11.000000000 -0500
++++ VT6656_linux_src_v1.19.16_x86/driver/main_usb.c	2002-01-01 10:51:18.000000000 -0500
+@@ -2516,7 +2516,7 @@ static struct usb_driver vntwusb_driver 
+ 
+ static int __init vntwusb_init_module(void)
+ {
+-	info(DEVICE_FULL_DRV_NAM " " DEVICE_VERSION);
++  //info(DEVICE_FULL_DRV_NAM " " DEVICE_VERSION);
+     return usb_register(&vntwusb_driver);
+ }
+ 
