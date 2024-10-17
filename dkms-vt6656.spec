@@ -17,7 +17,7 @@ Patch2: VT6656_linux_src_v1.19.16_x86-noinfo.patch
 License: GPL
 Group: System/Kernel and hardware
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Url: http://www.viaarena.com/
+Url: https://www.viaarena.com/
 BuildArch: noarch
 Requires(post): dkms
 Requires(preun): dkms
